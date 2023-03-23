@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/contactos/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/contactos/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/contactos",
+  "projects": {
+    "contactos": {
+      "type": "application",
+      "root": "apps/contactos",
+      "entryFile": "main",
+      "sourceRoot": "apps/contactos/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/contactos/tsconfig.app.json"
+      }
+    },
+    "usuarios": {
+      "type": "application",
+      "root": "apps/usuarios",
+      "entryFile": "main",
+      "sourceRoot": "apps/usuarios/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/usuarios/tsconfig.app.json"
+      }
+    }
+  }
+}
