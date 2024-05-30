@@ -7,14 +7,15 @@ import { CreatedUserPublisher } from './publisher/created-user.publisher';
     ClientsModule.register([
       {
         name: 'USUARIO_SERVICE',
-        transport: Transport.RMQ,
+        transport: Transport.KAFKA,
         options: {
-          urls: ['amqp://localhost:5672'],
-          queue: 'main_queue',
-          queueOptions: {
-            durable: false,
+          client: {
+            brokers: ['localhost:9092'],
           },
-        },
+          consumer: {
+            groupId: 'user-consumer'
+          }
+        }
       },
     ]),
   ],

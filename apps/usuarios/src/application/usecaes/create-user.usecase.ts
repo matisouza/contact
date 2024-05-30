@@ -13,7 +13,6 @@ export class CreateUserUseCase {
             .update(entity.password)
             .digest('hex');
 
-        console.log('createUser execute', `User Created`);
         return this.userRepository.create(entity)
     }
 }

@@ -52,5 +52,5 @@ export class UserRepository implements IUserRepository<User> {
     create(user: User): Observable<User> {
         return from(this.userRepository.create(user))
     }
-
+    
 } 

@@ -5,15 +5,14 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.connectMicroservice<MicroserviceOptions>({
-    transport: Transport.RMQ,
+    transport: Transport.KAFKA,
     options: {
-      urls: ['amqp://localhost:5672'],
-      queue: 'main_queue',
-      queueOptions: {
-        durable: false,
-      },
-    },
+      client: {
+        brokers: ['localhost:9092'],
+      }
+    }
   });
+
   await app.startAllMicroservices();
   await app.listen(3002);
   console.log(
