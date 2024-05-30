@@ -10,7 +10,7 @@ export class MongooseConfigService implements MongooseOptionsFactory {
     createMongooseOptions(): MongooseModuleOptions | Promise<MongooseModuleOptions> {
         console.log(this.configService.get<string>('NOSQL_URI'))
         return {
-            uri: 'mongodb+srv://user:123@cluster0.o8tkeem.mongodb.net/contact?retryWrites=true&w=majority&appName=Cluster0',
+            uri: '',
         };
     }
 
